@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf80b55516def04a82361454de2e2a3, type: 3}
+  m_Name: Earth
+  m_EditorClassIdentifier: 
+  name: Earth
+  weakness:
+  - {fileID: 11400000, guid: 904ef50909b42b74a88b6069c631a6ba, type: 2}
+  - {fileID: 11400000, guid: dc35b83db3b29c74195f386b5abd72b2, type: 2}
+  - {fileID: 11400000, guid: 70f219af0ae7ec7489a393a896726d55, type: 2}
+  effectiveness:
+  - {fileID: 11400000, guid: 00a07758d324c4b44a77b6612fd4f006, type: 2}
+  - {fileID: 11400000, guid: cda7cf58751b2f144a24013fa7c55bd0, type: 2}
+  color: {r: 0.4339623, g: 0.28149542, b: 0.13305448, a: 0}
