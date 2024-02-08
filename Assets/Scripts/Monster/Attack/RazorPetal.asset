@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc6a704c95361c48ad5c32f26c1eb17, type: 3}
+  m_Name: RazorPetal
+  m_EditorClassIdentifier: 
+  name: Razor Petal
+  type: {fileID: 11400000, guid: 904ef50909b42b74a88b6069c631a6ba, type: 2}
+  damage: 50
+  isSpecialAttack: 0
+  isStatusAttack: 0

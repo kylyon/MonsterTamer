@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Grass
   weakness:
   - {fileID: 11400000, guid: cda7cf58751b2f144a24013fa7c55bd0, type: 2}
+  - {fileID: 11400000, guid: 70f219af0ae7ec7489a393a896726d55, type: 2}
   effectiveness:
   - {fileID: 11400000, guid: dc35b83db3b29c74195f386b5abd72b2, type: 2}
   - {fileID: 11400000, guid: 10d5e9d8e29d1c448bde93ed980c84f4, type: 2}
