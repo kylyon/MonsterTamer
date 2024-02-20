@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockThrowBehaviour : AttackBehaviour
+public class FireballBehaviour : AttackBehaviour
 {
     private Rigidbody rb;
     public float speed;
@@ -12,7 +11,7 @@ public class RockThrowBehaviour : AttackBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * speed, ForceMode.Impulse);
+        rb.AddForce(transform.forward * speed, ForceMode.VelocityChange);
     }
     
     protected override void OnCollisionEnter(Collision other)
@@ -29,5 +28,4 @@ public class RockThrowBehaviour : AttackBehaviour
         }
         
     }
-    
 }

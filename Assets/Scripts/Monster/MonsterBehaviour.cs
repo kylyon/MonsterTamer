@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,6 +32,9 @@ public class MonsterBehaviour : MonoBehaviour
     //UI WorldSpace
     public TMP_Text textNameMonster;
     public Image hpBar;
+
+    public bool isOwner = false;
+    private PlayerInfo owner;
     
     // Start is called before the first frame update
     void Start()
@@ -74,12 +78,24 @@ public class MonsterBehaviour : MonoBehaviour
         CheckDeath();
     }
 
+    public void GetOwnership(PlayerInfo playerInfo)
+    {
+        isOwner = true;
+        owner = playerInfo;
+    }
+
+    public void RevokeOwnership()
+    {
+        isOwner = false;
+        owner = null;
+    }
+
     public void Attack(Attack attackUsed)
     {
-        if (CompareTag("Monster"))
+        /*if (CompareTag("Monster"))
         {
             return;
-        }
+        }*/
         attackUsed.UseAttack(attackLauncher,attackStat + attackUsed.GetDamageAmount());
         /*
         var monster = GameObject.FindGameObjectWithTag("Monster");
@@ -90,19 +106,28 @@ public class MonsterBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && firstAttack != null)
+        if (isOwner)
         {
-            Attack(firstAttack);
-        }
+            if (Input.GetMouseButtonDown(0) && firstAttack != null)
+            {
+                Attack(firstAttack);
+            }
 
-        if (Input.GetMouseButtonDown(1) && secondAttack != null)
-        {
-            Attack(secondAttack);
-        }
+            if (Input.GetMouseButtonDown(1) && secondAttack != null)
+            {
+                Attack(secondAttack);
+            }
         
-        if (Input.GetKeyDown(KeyCode.Space) && thirdAttack != null)
-        {
-            Attack(thirdAttack);
+            if (Input.GetKeyDown(KeyCode.Space) && thirdAttack != null)
+            {
+                Attack(thirdAttack);
+            }
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                pvLeft -= 1000;
+                CheckDeath();
+            }
         }
     }
 
@@ -116,6 +141,15 @@ public class MonsterBehaviour : MonoBehaviour
         if (pvLeft <= 0)
         {
             gameObject.SetActive(false);
+            if (isOwner)
+            {
+                WorldManager.Instance.virtualCamera.Follow = owner.followTarget;
+                
+                owner.playerGameObject.GetComponent<PlayerMovement>().enabled = true;
+                owner.playerGameObject.GetComponent<PlayerRotation>().enabled = true;
+                owner.playerGameObject.GetComponent<CharacterController>().enabled = true;
+            }
+            Destroy(gameObject);
         }
     }
 }

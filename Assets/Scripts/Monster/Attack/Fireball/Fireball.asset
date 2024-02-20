@@ -17,3 +17,4 @@ MonoBehaviour:
   damage: 50
   isSpecialAttack: 0
   isStatusAttack: 0
+  attackPrefab: {fileID: 3711721641024132427, guid: 4af9daf2d556a3646907eed2955b9cc6, type: 3}
